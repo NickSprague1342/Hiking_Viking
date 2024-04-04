@@ -1,0 +1,20 @@
+{
+  "name": "hiking_viking",
+  "version": "1.0.0",
+  "description": "A hiking and outdoor app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickSprague1342/Project_2.git"
+  },
+  "author": "Ava,Ceci,Nick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NickSprague1342/Project_2/issues"
+  },
+  "homepage": "https://github.com/NickSprague1342/Project_2#readme"
+}
+
