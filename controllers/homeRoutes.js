@@ -34,4 +34,3 @@ router1.get('models/reviews.js', async (res, req) => {
     }
 });
 const reviewData = await res.json();
-
