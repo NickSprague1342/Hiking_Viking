@@ -1,36 +1,37 @@
 //=====================================
 // basic requires for express, sequalize, dotenv, and files.
 //=====================================
-const router1 = require('express').Router();
-const sequelize = require('sequelize');
-const { Reviews, User, Hikes } = require('/Users/nicholassprague/bootcamp/PROJECTS/Project_2/models');
-require('dotenv').config();
+const router = require('express').Router();
 // const needAuth = require('utils/auth.js');
 
 //===================================
 // below is a try/catch with generic error message and 500 error for bad server
 //===================================
-router1.get('/' , async (req, res) => {
+router.get('/' , async (req, res) => {
     try {
-        res.render('homepage.handlebars', { loggedIn: req.session.loggedIn});
+        res.render('homepage', { loggedIn: req.session.loggedIn, title:'HIKING VIKING'});
     } catch (error) {
         console.log(error);
         res.status(500).send({message: `Oh No! A Generic Error Massage!`})
     }
 });
 
-router1.get('/password', async (req, res) => {
+router.get('/login', async (req, res) => {
     try {
-        res.render('password', { loggedIn: req.session.loggedIn});
+        res.render('login', { loggedIn: req.session.loggedIn, title: 'Login Page'});
     } catch (error) {
         console.log(error);
         res.status(401).json(error);
     }
 });
 
-router1.get('models/reviews.js', async (res, req) => {
+router.get('/reviews', async (req, res) => {
     try {
-        const response = await fetch('models/reviews.js')
+        res.render('reviews', { loggedIn: req.session.loggedIn, title: 'Reviews'});
+    } catch (error) {
+        console.log(error);
+        res.status(401).json(error);
     }
 });
-const reviewData = await res.json();
+
+module.exports = router;
