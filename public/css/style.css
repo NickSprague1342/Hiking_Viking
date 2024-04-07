@@ -1,8 +1,37 @@
-* {
-    color:black
+:root {
+    --primary: #166f3d;
+    --secondary: #089a27;
+    --tertiary: #aa4806;
+    --quatrinary: #c59f08;
+    --light: #b3d4b3;
+    --dark: #034226;
+    --error: rgb(228, 46, 1);
+    --border-radius: 0.3rem;
   }
-  * {
-      font-family: "MedievalSharp";
-      font-weight: 400;
-      font-style: normal;
-    }
+
+
+* {
+    font-family: "MedievalSharp";
+    font-weight: 600;
+    font-size: large;
+    font-style: normal;
+    background-color: rgb(1, 69, 1);
+    color: rgb(177, 89, 12);
+
+  }
+
+.navbar-brand {
+    font-size:40px;
+    color: var(--tertiary)
+
+  }
+
+.collapse {
+    color: var(--tertiary);
+  }
+
+  @media screen and (max-width: 1000px;){
+      flex-wrap: wrap;
+  }
+    
+  
