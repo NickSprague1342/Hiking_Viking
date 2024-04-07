@@ -1,8 +1,9 @@
 // const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
+const session = require('express-session');
 // const mysql = require('mysql2');
-// const routes = require('./controllers');
+const routes = require('./controllers');
 // const helpers = require('./utils/helpers');
 
 const app = express();
@@ -19,6 +20,12 @@ app.use(express.urlencoded({ extended: true }));
 // Static files
 app.use(express.static(('public')));
 
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  }))
 // Connection Pool
 // const pool = mysql.createPool({
 //     connectionLimit: 100,
@@ -34,11 +41,6 @@ app.use(express.static(('public')));
 //     console.log('Connected as ID' + connection.threadId);
 // });
 
-// app.use(routes);
+app.use(routes);
 
-// Router
-app.get('', (req, res) => {
-    res.render('homepage')
-})
-
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`Listening on port http://localhost:${PORT}`));

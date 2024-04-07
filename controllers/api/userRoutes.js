@@ -2,12 +2,12 @@
 // starting info
 //===========================
 const router = require('express').Router();
-const { User } = require('models/User.js');
+const { User } = require('../../models/User.js');
 
 //==========================
 // used to create new users
 //==========================
-router.post('/', async (res, req) => {
+router.post('/', async (req, res) => {
     try {
         const userData = await User.create({
             username: req.body.username,
@@ -67,7 +67,7 @@ router.put('/password', async (req, res) => {
 //=============================
 // below is to lig the user into the app
 //=============================
-router1.post('/login', async (res, res) => {
+router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({
             where: {
@@ -100,7 +100,7 @@ router1.post('/login', async (res, res) => {
                 .json({ user: userData, message: 'Logging you in!'});
         });
     } catch (error) {
-        console.log(error):
+        console.log(error);
         res.status(500).json(error);
     }
 });
@@ -108,7 +108,7 @@ router1.post('/login', async (res, res) => {
 //==========================
 // below used to log user out of app
 //==========================
-router1.post('/logout', (res, req) => {
+router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.sessiob.destroy(() => {
             res.status(200).exit();
