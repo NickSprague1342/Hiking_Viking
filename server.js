@@ -2,7 +2,7 @@
 const express = require('express');
 // const session = require('express-session');
 const exphbs = require('express-handlebars');
-const routes = require('./controllers');
+// const routes = require('./controllers');
 // const helpers = require('./utils/helpers');
 
 // const sequelize = require('./config/connection');
@@ -39,7 +39,7 @@ app.use(express.urlencoded({ extended: true }));
 // Static files
 app.use(express.static(('public')));
 
-app.use(routes);
+// app.use(routes); 
 
 // sequelize.sync({ force: false }).then(() => {
 //     app.listen(PORT, () => console.log('Now listening'));
