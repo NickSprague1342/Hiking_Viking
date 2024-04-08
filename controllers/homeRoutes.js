@@ -29,7 +29,7 @@ router.get('/password', async (req, res) => {
     }
 });
 
-router.post('./models/reviews.js', (req, res) => {
+router.post('', (req, res) => {
     if (req.session.username) {
         const username = req.session.username;
         const { postedReview } = req.body
