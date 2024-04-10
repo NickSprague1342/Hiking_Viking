@@ -68,6 +68,7 @@ router.put('/password', async (req, res) => {
 // below is to lig the user into the app
 //=============================
 router.post('/login', async (req, res) => {
+    const {email, password} = req.body
     try {
         const userData = await User.findOne({
             where: {
