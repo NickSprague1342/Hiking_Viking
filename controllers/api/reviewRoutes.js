@@ -1,6 +1,9 @@
 const session = require("connect-session-sequelize");
+// controllers/api/reviewRoutes.js
+const express = require('express');
+const router = express.Router();
 
-app.get("/user_page", (req, res) => {
+router.get("/submit-review", (req, res) => {
     if (req.session.username) {
         const username = req.session.username;
 
@@ -11,7 +14,7 @@ app.get("/user_page", (req, res) => {
                 console.error(err.message);
                 res.status(500).send("Error");
             } else {
-                res.render("user_page", { username, reviews });
+                res.render("submit-review", { username, reviews });
             }
         });
         db.close();
@@ -20,7 +23,7 @@ app.get("/user_page", (req, res) => {
     }
 });
 
-app.post("/post_review", (req, res) => {
+router.post("/post_review", (req, res) => {
     if (req.session.username) {
         const username = req.session.username;
         const { review_text, rating } = req.body;
@@ -46,3 +49,5 @@ app.post("/post_review", (req, res) => {
         res.redirect("/login");
     }
 });
+
+module.exports = router;
