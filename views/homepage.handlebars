@@ -1,57 +1,72 @@
 <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-        <div class="titleHeader">
-            <div class="card transparent z-depth-5"></div>
-            <h1 class="header center deep-purple-text text-darken-4 title-text">Welcome to Hiking Viking! </h1>
-        </div>
-        <br>
-        <div class="row center">
-            <h5 class="header col s12 light">Trail Valhalla!</h5>
-        </div>
-        <div class="row center">
-            {{#if loggedIn}}
-            <a href="/search" class="btn-large waves-effect waves-light deep-purple darken-1">Search Trails</a>
-            {{else}}
-            <a href="/search" class="btn-large waves-effect waves-light deep-purple darken-1">Search Trails</a>
-            <a href="/login" class="btn-large waves-effect waves-light deep-purple darken-1">Login</a>
-            {{/if}}
-        </div>
-        <br /><br />
-
+  <div class="container">
+    <div class="titleHeader">
+      <h1
+        class="header center deep-purple-text text-darken-4 title-text"
+      >Welcome to Hiking Viking! </h1>
     </div>
+    <br />
+    <div class="row center">
+      <h5 class="header col s12 light">Trail Valhalla!</h5>
+    </div>
+    <div class="row center">
+      {{#if loggedIn}}
+        <a
+          href="/search"
+          class="btn-large waves-effect waves-light deep-purple darken-1"
+        >Search Trails</a>
+      {{else}}
+        <a
+          href="/search"
+          class="btn-large waves-effect waves-light deep-purple darken-1"
+        >Search Trails</a>
+        <a
+          href="/login"
+          class="btn-large waves-effect waves-light deep-purple darken-1"
+        >Login</a>
+      {{/if}}
+    </div>
+    <br /><br />
+
+  </div>
 </div>
 
 <div class="container">
-    <div class="section">
+  <div class="section">
 
-        <div class="row">
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center deep-purple-text"><i class="photoDrop">Post a Photo of your Adventure!</i>
-                    </h2>
-                    <h5 class="center">Post photos of your trail.</h5>
-                    <div class="photoForm">
-                    <input type="file" accept="image/*" id="fileInput">
-                </div>
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center deep-purple-text"><i class="photoDrop">Post a Photo
+              of your Adventure!</i>
+          </h2>
+          <h5 class="center">Post photos of your trail.</h5>
+          <div class="photoForm">
+            <input type="file" accept="image/*" id="fileInput" />
+          </div>
 
-                </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center deep-purple-text"><i class="trailReview">Trail Reviews</i></h2>
-                    <h5 class="center">Review your favorite trails.</h5>
-                    <textarea id="reviewBox" placeholder="Review your Adventure Here..."></textarea>
-                    <button id="postBtn">Post</button>
-                </div>
-            </div>
-            {{!-- <div class="col s12 m4">
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center deep-purple-text"><i class="trailReview">Trail
+              Reviews</i></h2>
+          <h5 class="center">Review your favorite trails.</h5>
+          <textarea
+            id="reviewBox"
+            placeholder="Review your Adventure Here..."
+          ></textarea>
+          <button id="postBtn">Post</button>
+        </div>
+      </div>
+      {{! <div class="col s12 m4">
                 <div class="icon-block">
                     <h2 class="center deep-purple-text"><i class="material-icons">Adventure Awaits!</i></h2>
                     <h5 class="center">Search for Adventures Here!</h5>
                 </div>
-            </div> --}}
-        </div>
-
+            </div> }}
     </div>
-    <br/><br/>
+
+  </div>
+  <br /><br />
 </div>
