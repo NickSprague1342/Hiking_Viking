@@ -1,0 +1,40 @@
+<body>
+    <h1>User Reviews</h1>
+    {{#if reviews}}
+    <div class="container">
+        {{#each reviews}}
+        <div class="review">
+            <h2>{{reviews.title}}</h2>
+            <p>{{reviews.content}}</p>
+            <p>Submitted by: {{reviews.user}}</p>
+            <p>Rating: {{reviews.rating}}/5</p>
+            <p>Date: {{reviews.formattedDate date}}</p>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p>No reviews available.</p>
+    {{/if}}
+
+    <!-- Form for submitting reviews -->
+    <form id="review-form">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content"></textarea><br>
+        <label for="user">Your Name:</label><br>
+        <input type="text" id="user" name="user"><br>
+        <label for="rating">Rating:</label><br>
+        <select id="rating" name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+        <button type="submit">Submit Review</button>
+    </form>
+
+    <!-- Include any necessary JavaScript files -->
+    <script src="/public/js/review.js"></script>
+</body>
