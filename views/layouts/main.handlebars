@@ -17,11 +17,11 @@
   </head>
   <body>
     <nav
-      class="navbar navbar-expand-lg"
+      class="navbar navbar-expand-lg border-warning rounded"
       style="background-color: rgb(3, 56, 3); text-color: rgb(177, 85, 9);"
     >
       <div class="container">
-        <a class="navbar-brand" href="#">HIKING VIKING</a>
+        <h1 class="navbar-brand">HIKING VIKING</h1>
         <button
           class="navbar-toggler"
           type="button"
@@ -38,18 +38,6 @@
             <li class="nav-item active">
               <a class="nav-link" href="/">Home</a>
             </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/reviews">Trail Reviews</a>
-              </li>
-              <!--Only display the logout button if the user is logged in-->
-              {{#if loggedIn}}
-              <li class="nav-item">
-                <a class="nav-link">Logout</a>
-              </li>
-              {{/if}}
           </ul>
         </div>
       </div>

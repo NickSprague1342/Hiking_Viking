@@ -21,9 +21,17 @@ body {
   }
 
 .navbar-brand {
-    font-size:40px;
-    color: var(--tertiary)
+    font-size:50px;
+    color: var(--quatrinary);
 
+  }
+
+  .nav-link {
+    color:var(--tertiary);
+  }
+
+  .nav-link:hover {
+    color: var(--quatrinary);
   }
 
   textarea {
