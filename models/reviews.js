@@ -1,6 +1,6 @@
 // models/reviews.js
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // Assuming you have a Sequelize instance configured
+const sequelize = require('../config/connection');
 
 class Review extends Model { }
 

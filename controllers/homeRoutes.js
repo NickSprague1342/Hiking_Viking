@@ -2,7 +2,7 @@
 // basic requires for express, sequalize, dotenv, and files.
 //=====================================
 const router = require('express').Router();
-const Review = require('../../models/reviews');
+const Review = require('../models/reviews');
 
 //===================================
 // below is a try/catch with generic error message and 500 error for bad server
