@@ -22,7 +22,7 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
 
     // Gather user input from the form
-    const emailInput = document.querySelector('#user-login');
+    const emailInput = document.querySelector('#email-login');
     const passwordInput = document.querySelector('#password-login');
 
     // Trimmed values of user input
