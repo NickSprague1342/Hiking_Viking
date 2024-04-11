@@ -1,10 +1,12 @@
-// const path = require('path');
+const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
-// const mysql = require('mysql2');
 const routes = require('./controllers');
-// const helpers = require('./utils/helpers');
+
+const sequelize = require('./config/connection');
+// creates new sequelize store
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -18,29 +20,20 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Static files
-app.use(express.static(('public')));
-
+app.use(express.static(path.join(__dirname, 'public')));
+// configures & links session object w/sequelize store and stores as express.js middleware
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }
+    cookie: { secure: false },
+    store: new SequelizeStore({
+      db: sequelize
+    })
   }))
-// Connection Pool
-// const pool = mysql.createPool({
-//     connectionLimit: 100,
-//     host: process.env.DB_HOST,
-//     user: process.env.DB_USER,
-//     password: process.env.DB_PW,
-//     database: process.env.DB_NAME
-// });
-
-// Connect to DB
-// pool.getConnection((err, connection) => {
-//     if (err) throw err; //not connected
-//     console.log('Connected as ID' + connection.threadId);
-// });
 
 app.use(routes);
 
-app.listen(PORT, () => console.log(`Listening on port http://localhost:${PORT}`));
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});
