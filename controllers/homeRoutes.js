@@ -2,7 +2,7 @@
 // basic requires for express, sequalize, dotenv, and files.
 //=====================================
 const router = require('express').Router();
-// const needAuth = require('utils/auth.js');
+const Review = require('../../models/reviews');
 
 //===================================
 // below is a try/catch with generic error message and 500 error for bad server
@@ -31,6 +31,26 @@ router.get('/reviews', async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(401).json(error);
+    }
+});
+
+// Handle form submission to submit a new review
+router.post('/submit-review', async (req, res) => {
+    try {
+        // Extract review data from request body
+        const { title, content, user, rating } = req.body;
+
+        // Create a new review document
+        const review = new Review({ title, content, user, rating });
+
+        // Save the review to the database
+        await review.save();
+
+        // Send a success response
+        res.status(201).json({ message: 'Review submitted successfully!', review });
+    } catch (error) {
+        // Handle errors
+        res.status(500).json({ error: 'Failed to submit review.' });
     }
 });
 
